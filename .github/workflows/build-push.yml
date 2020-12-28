@@ -1,0 +1,18 @@
+name: Publish container image
+on: [push]
+jobs:
+  push_to_registry:
+    name: Push to Github Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+      - name: Build and push
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+          registry: docker.pkg.github.com
+          repository: vamc19/toolbox/toolbox
+          tag_with_ref: true
+
