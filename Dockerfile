@@ -7,9 +7,7 @@ LABEL com.github.containers.toolbox="true" \
       name="$FGC/$NAME" \
       version="$VERSION" \
       usage="This image is meant to be used with the toolbox command" \
-      summary="Base image for creating Fedora toolbox containers" \
-
-COPY README.md /
+      summary="Base image for creating Fedora toolbox containers"
 
 RUN sed -i '/tsflags=nodocs/d' /etc/dnf/dnf.conf
 
